@@ -1,7 +1,7 @@
 .board_tile_0,
 .board_tile_1 {
-    width: 100px;
-    height: 100px;
+    width: 19%;
+    height:150px;
     border: 1px #01cdfe dashed;
     float: right;
     background-color: #05ffa1;
@@ -10,29 +10,46 @@
     margin-right: 2px;
     opacity:0.94;
 }
+@media screen and (max-width: 550px) {
+    .board_tile_0,
+    .board_tile_1 {
+        width:19%;
+        height:120px;
+        margin-right: 1px;
+    }
+
+    .board_tile_0 p,
+    .board_tile_1 p {
+        text-align: center; 
+        font-size: 12px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+}
 .board_tile_0 p,
 .board_tile_1 p {
     margin: auto;
     text-align: center; 
     font-size: 14px;
-    text-shadow: 2px 2px #01cdfe;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .board_tile_0 {
-    color: #ff0000;
+    color: #FFF;
+    text-shadow: 1px 1px #b967ff;
 }
 .board_tile_1,
 #tile_12 {
     color: #FFF;
     background-color: #ff71ce;
+    text-shadow: 1px 1px #01cdfe;
 }
 .main_board {
     margin: 0 auto;
-    width: 510px;
+    width: 100%;
+    max-width: 1000px;
 }
 .row {
-    height: 105px;
     display: flex;
+    margin-bottom: 2px;
 }
 .menu {
     margin: 0 auto;
@@ -51,4 +68,11 @@ body {
 h2 {
     color: #FFF;
     text-shadow: 2px 2px #ff0000;
+}
+button {
+    width: 150px;
+    height: 50px;
+    background-color: #01cdfe;
+    opacity: 0.7;
+    margin-top: 15px;
 }

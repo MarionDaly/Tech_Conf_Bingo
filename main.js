@@ -24,7 +24,9 @@ const library = [
 	"'You Don't Look Like An Engineer'",
 	"Being Asked if You Need Help",
 	"Being Interrupted by a Stranger While Talking to a Colleague",
-	"Having Somenone's First Comment To You be About Your Looks"
+	"Having Somenone's First Comment To You be About Your Looks",
+	"'Girls' Instead of 'Women'",
+	"'You look just like ______!' [female celeb, no resemblance]"
 ];
 // Check to see if a board already exists for this user, if so set the var, 
 // if not create a new board and save it in local storage then draws the board
