@@ -15,43 +15,16 @@ const library = [
 	"All The Keynote Speakers are Men",
 	"No Lines for the Women's Bathroom",
 	"All Photos in Slides are Men",
-	"repeat REPEAT REPEAT",
-	"Are You Here With Your Boyfriend / Husband?",
-	"Are You In Marketing?",
-	"Unisex T-Shirts",
-	"A 'Question' That's Really Just a Statement.",
-	"Booth Babes",
-	"In a sea of drunk men at the conference afterparty",
-	"Are you in Sales?",
-	"Being Hit On",
-	"Assumption You Are a Diversity Hire",
-	"Assumption You Are a Manager or Project Manager",
-	"'Dongle Jokes'",
-	"All Male Panel",
-	"Are You Here With Your Boyfriend / Husband?",
-	"Are You In Marketing?",
-	"Unisex T-Shirts",
-	"A 'Question' That's Really Just a Statement.",
-	"Booth Babes",
-	"In a sea of drunk men at the conference afterparty",
-	"Are you in Sales?",
-	"Being Hit On",
-	"Assumption You Are a Diversity Hire",
-	"Assumption You Are a Manager or Project Manager",
-	"'Dongle Jokes'",
-	"All Male Panel",
-	"Are You Here With Your Boyfriend / Husband?",
-	"Are You In Marketing?",
-	"Unisex T-Shirts",
-	"A 'Question' That's Really Just a Statement.",
-	"Booth Babes",
-	"In a sea of drunk men at the conference afterparty",
-	"Are you in Sales?",
-	"Being Hit On",
-	"Assumption You Are a Diversity Hire",
-	"Assumption You Are a Manager or Project Manager",
-	"'Dongle Jokes'",
-	"All Male Panel"
+	"No Women Speakers",
+	"Only Women's Event Scheduled Opposite to Main Keynote",
+	"Air Conditioning Cracked Up High",
+	"WElL ACTUALLY",
+	"Being Mistaken for An Intern",
+	"Being Asked if You're a Designer or something to do with Art",
+	"'You Don't Look Like An Engineer'",
+	"Being Asked if You Need Help",
+	"Being Interrupted by a Stranger While Talking to a Colleague",
+	"Having Somenone's First Comment To You be About Your Looks"
 ];
 // Check to see if a board already exists for this user, if so set the var, 
 // if not create a new board and save it in local storage then draws the board
@@ -69,7 +42,7 @@ function generateBoard() {
 	let randLibrary = randomizeArray(library);
 	for (let N = 0; N < 25; N++) {
 		if (N == 12){
-			array[12] = ["mansplaining freespace", 0];
+			array[12] = ["mansplaining freespace", 1];
 			continue;
 		}
 		let payload = [randLibrary[N], 0];
