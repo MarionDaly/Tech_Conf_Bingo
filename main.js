@@ -105,9 +105,16 @@ function drawBoard(array) {
 // Function to mark which tiles have been seen already
 function mark(tile_ref) {
 	let tile_id = "tile_" + tile_ref;
-	document.getElementById(tile_id).className = "board_tile_1";
+	let class_name = document.getElementById(tile_id).className;
 	let board = JSON.parse(localStorage.getItem("board"));
-	board[tile_ref] = [board[tile_ref][0], 1];
+	if (class_name == "board_tile_1") {
+		class_name = "board_tile_0";
+		board[tile_ref] = [board[tile_ref][0], 0];
+	} else {
+		class_name = "board_tile_1";
+		board[tile_ref] = [board[tile_ref][0], 1];
+	}
+	document.getElementById(tile_id).className = class_name;
 	localStorage.setItem("board", JSON.stringify(board));
 }
 // function to allow the user to randomly generate a new board.
