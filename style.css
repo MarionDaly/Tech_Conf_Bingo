@@ -4,7 +4,7 @@
     height:150px;
     border: 1px #01cdfe dashed;
     float: right;
-    background-color: #05ffa1;
+    background-color: #01cdfe;
     display: flex;
     margin: auto; 
     margin-right: 2px;
@@ -31,16 +31,17 @@
     text-align: center; 
     font-size: 14px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-shadow: 1px 1px #000;
 }
 .board_tile_0 {
     color: #FFF;
-    text-shadow: 1px 1px #b967ff;
+    text-shadow: 1px 1px #ff71ce;
 }
 .board_tile_1,
 #tile_12 {
     color: #FFF;
     background-color: #ff71ce;
-    text-shadow: 1px 1px #01cdfe;
+    
 }
 .main_board {
     margin: 0 auto;
