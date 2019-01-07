@@ -26,7 +26,22 @@ const library = [
 	"Being Interrupted by a Stranger While Talking to a Colleague",
 	"Having Somenone's First Comment To You be About Your Looks",
 	"'Girls' Instead of 'Women'",
-	"'You look just like ______!' [female celeb, no resemblance]"
+	"'You look just like ______!' [female celeb, no resemblance]",
+	"Dude Explaining to You about the Tyranny of a CoC.",
+	"Reports of Harassment Going UnAnswered",
+	"Someone Hands you an Empty Drink Assuming You're a Server",
+	"Getting 'Advice' Because You're a 'Beginner' Despite 10+ Yrs of XP",
+	"Oh You Know What Git Is? GOOD",
+	"You're a Unicorn!",
+	"Are You a Developer?",
+	"Mention of 'Yoga Pants'",
+	"'Females'",
+	"Every Example is About a 'He'",
+	"Dodging Unwanted Hugs",
+	"Let Me Tell you About How my Company Does Diversity",
+	"Your Glasses Make you Look Like a Sexy Librarian",
+	"Assuming the Younger Male Member of Your Team is Your Senior/Boss",
+	"You Work in Front End?"
 ];
 // Check to see if a board already exists for this user, if so set the var, 
 // if not create a new board and save it in local storage then draws the board
@@ -44,11 +59,11 @@ function generateBoard() {
 	let randLibrary = randomizeArray(library);
 	for (let N = 0; N < 25; N++) {
 		if (N == 12){
-			array[12] = ["mansplaining freespace", 1];
+			array[12] = ["Man-Splaining Free-Space", 1];
 			continue;
 		}
 		let payload = [randLibrary[N], 0];
-		array[N]      = payload;
+		array[N] = payload;
 
 	}
 	return array;

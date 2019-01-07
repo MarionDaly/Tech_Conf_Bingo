@@ -4,11 +4,17 @@
     height:150px;
     border: 1px #01cdfe dashed;
     float: right;
-    background-color: #01cdfe;
+    background-color: #0391b4;
     display: flex;
     margin: auto; 
     margin-right: 2px;
     opacity:0.94;
+}
+.board_tile_0:hover,
+.board_tile_1:hover, 
+button:hover {
+    opacity:0.65;
+    cursor: pointer;
 }
 @media screen and (max-width: 550px) {
     .board_tile_0,
@@ -21,7 +27,7 @@
     .board_tile_0 p,
     .board_tile_1 p {
         text-align: center; 
-        font-size: 12px;
+        font-size: 14px;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 }
@@ -29,7 +35,7 @@
 .board_tile_1 p {
     margin: auto;
     text-align: center; 
-    font-size: 14px;
+    font-size: 18px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-shadow: 1px 1px #000;
 }
