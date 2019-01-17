@@ -55,16 +55,15 @@ drawBoard(board);
 // Basic function to generate new boards, it randomizes library array and creates the basic array 
 // for the board, adds blank space for mansplaining at N == 12 (center tile)
 function generateBoard() {
-	let array       = [];
+	let array = [];
 	let randLibrary = randomizeArray(library);
 	for (let N = 0; N < 25; N++) {
-		if (N == 12){
+		if (N === 12){
 			array[12] = ["Man-Splaining Free-Space", 1];
 			continue;
 		}
 		let payload = [randLibrary[N], 0];
 		array[N] = payload;
-
 	}
 	return array;
 }
@@ -85,7 +84,7 @@ function drawBoard(array) {
 	let outputBoard = "<div class='main_board'><div class='row'>";
 	for (let N = 0; N < 25; N++) {
 		outputBoard += "<div class='board_tile_" + array[N][1] + "' id='tile_" + N + "' onclick='mark(" + N + ")'><p>" + array[N][0] + "</p></div>";
-		if (N == 24) {
+		if (N === 24) {
 			outputBoard += "</div>";
 			break;
 		}
@@ -106,13 +105,103 @@ function mark(tile_ref) {
 	} else {
 		class_name = "board_tile_1";
 		board[tile_ref] = [board[tile_ref][0], 1];
+		if(winCondition(tile_ref, board) == true) {
+			document.getElementById('win_title').innerHTML = "You Win!!!...yay?";
+		}
 	}
 	document.getElementById(tile_id).className = class_name;
-	localStorage.setItem("board", JSON.stringify(board));
+	localStorage.setItem("board", JSON.stringify(board));	
 }
 // function to allow the user to randomly generate a new board.
 function reset() {
 	let board = generateBoard();
 	localStorage.setItem("board", JSON.stringify(board));
+	document.getElementById('caller_button').style.visibility = 'visible';
 	drawBoard(board);
+}
+// Draw the Caller app and redraw the page somewhat to accomdoate it. 
+function draw_caller() {
+	let outputBoard = "<div class='main_board'><button id='new_tile' type='button' onclick='newTile()'>Call A New Tile</button><div id='tile_bank' class='tile_bank'>";
+	if (localStorage.getItem("called_library") !== null) {
+		var calledLibrary = JSON.parse(localStorage.getItem("called_library"));
+		outputBoard += drawCalled(calledLibrary);
+	}
+	outputBoard += "</div><button id='caller_reset' type='button' onclick='callerReset()'>Start a New Game (Delete Everything)</button></div>";
+	document.getElementById('main').innerHTML = outputBoard;
+	document.getElementById('caller_button').style.visibility = 'hidden';
+	document.getElementById('new_button').innerHTML = "Play The Game";
+}
+// Randomize library, draw a new item from library and add it to called library for future recall.
+function newTile() {	
+	if (localStorage.getItem("call_library") === null) {
+		var callLibrary = randomizeArray(library);
+		var calledLibrary = [];
+		var callerIndex = 0;
+		localStorage.setItem("call_library", JSON.stringify(callLibrary));
+		localStorage.setItem("called_library", JSON.stringify(calledLibrary));
+		localStorage.setItem("caller_index", JSON.stringify(callerIndex));
+	} else {
+		var callLibrary = JSON.parse(localStorage.getItem("call_library"));
+		var calledLibrary = JSON.parse(localStorage.getItem("called_library"));
+		var callerIndex = JSON.parse(localStorage.getItem("caller_index"));
+	}
+	var tile = callLibrary[callerIndex];
+	calledLibrary.push(tile);
+	callerIndex++;
+	localStorage.setItem("called_library", JSON.stringify(calledLibrary));
+	localStorage.setItem("caller_index", JSON.stringify(callerIndex));
+	var outputBoard = drawCalled(calledLibrary);
+	document.getElementById('tile_bank').innerHTML = outputBoard;
+
+}
+// Clear storage for caller side of the app and empties the page. 
+function callerReset(){
+	localStorage.removeItem("caller_index");
+	localStorage.removeItem("called_library");
+	localStorage.removeItem("call_library");
+	document.getElementById('tile_bank').innerHTML = "";
+}
+// Draw called out items. 
+function drawCalled(calledLibrary) {
+	var outputBoard = "<ul>";
+	for (let i = 0; i < calledLibrary.length; i++) {
+		outputBoard += "<li>" + calledLibrary[i] + "</li>";
+	}
+	outputBoard += "</ul>";
+	return outputBoard;
+}
+// function to determine if the user has one or not.
+function winCondition(square, board){
+	//index of all known winning patterns.
+	const winners = [
+		[0, 1, 2, 3, 4],
+		[5, 6, 7, 8, 9],
+		[10, 11, 12, 13, 14],
+		[15, 16, 17, 18, 19],
+		[20, 21, 22, 23, 24],
+		[0, 5, 10, 15, 20],
+		[1, 6, 11, 16, 21],
+		[2, 7, 12, 17, 22],
+		[3, 8, 13, 18, 23],
+		[4, 9, 14, 19, 24],
+		[0, 6, 12, 18, 24],
+		[4, 8, 12, 16, 20]
+	];
+	//Loop through all possible win conditions to see if the square matches 
+	//then go through each index in the array to see if they are already marked. 
+	for(let i = 0; i < 12; i++) {
+		let index = winners[i].indexOf(square);
+		if (index != -1) {
+			for(let j = 0; j < 5; j++) {
+				squareIndex = winners[i][j];
+				if (board[squareIndex][1] === 0 && j !== 4) {
+					break;
+				}
+				else if (board[squareIndex][1] === 1 && j === 4){
+					return true;
+				}
+			}
+		}
+	}
+	return false;
 }

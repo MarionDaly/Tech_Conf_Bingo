@@ -1,7 +1,7 @@
 .board_tile_0,
 .board_tile_1 {
     width: 19%;
-    height:150px;
+    height:175px;
     border: 1px #01cdfe dashed;
     float: right;
     background-color: #0391b4;
@@ -11,33 +11,35 @@
     opacity:0.94;
 }
 .board_tile_0:hover,
-.board_tile_1:hover, 
-button:hover {
+.board_tile_1:hover {
     opacity:0.65;
     cursor: pointer;
-}
-@media screen and (max-width: 550px) {
-    .board_tile_0,
-    .board_tile_1 {
-        width:19%;
-        height:120px;
-        margin-right: 1px;
-    }
-
-    .board_tile_0 p,
-    .board_tile_1 p {
-        text-align: center; 
-        font-size: 14px;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
 }
 .board_tile_0 p,
 .board_tile_1 p {
     margin: auto;
     text-align: center; 
-    font-size: 18px;
+    font-size: 1.5em;
+    font-size: 2.5vw;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-shadow: 1px 1px #000;
+}
+.tile_bank {
+    color: #FFF;
+    background-color: #ff71ce;
+    padding: 15px;
+    font-size: 1.5em;
+}
+@media only screen 
+and (min-device-width : 1025px)  {
+    .board_tile_0 p,
+    .board_tile_1 p,
+    .title_bank {
+        text-align: center; 
+        font-size: 1.5em;
+        font-size: 1vw;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 }
 .board_tile_0 {
     color: #FFF;
@@ -56,7 +58,7 @@ button:hover {
 }
 .row {
     display: flex;
-    margin-bottom: 2px;
+    margin-bottom: 4px;
 }
 .menu {
     margin: 0 auto;
@@ -75,11 +77,38 @@ body {
 h2 {
     color: #FFF;
     text-shadow: 2px 2px #ff0000;
+    text-align: center;
+}
+h3 {
+    color: #FFF;
+    text-shadow: 2px 2px #ff0000;
+    text-align: center;
+    font-size:24px;
+    background-color:  #0391b4;
 }
 button {
-    width: 150px;
+    width: 100%;
+    max-width: 1000px;
     height: 50px;
     background-color: #01cdfe;
     opacity: 0.7;
     margin-top: 15px;
+    font-size: 18px;
+    font-weight:900;
+    color: #FFF;
+    text-shadow: 1px 1px #000;
+}
+button:hover {
+    opacity:0.75;
+    cursor: pointer;
+    background-color: #ff71ce;
+}
+ul {
+    list-style: none;
+}
+li {
+    margin-bottom: 2px;
+    border-bottom: 1px gray solid;
+
+
 }
