@@ -29,7 +29,7 @@
         "type": "image/png"
       }
     ],
-    "start_url": "/index.html",
+    "start_url": "/Tech_Conf_Bingo/index.html",
     "display": "standalone",
     "background_color": "#b967ff",
     "theme_color": "#b967ff"
