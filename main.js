@@ -126,7 +126,7 @@ function draw_caller() {
 		var calledLibrary = JSON.parse(localStorage.getItem("called_library"));
 		outputBoard += drawCalled(calledLibrary);
 	}
-	outputBoard += "</div><button id='caller_reset' type='button' onclick='callerReset()'>Start a New Game (Delete Everything)</button></div>";
+	outputBoard += "</div><button id='caller_reset' type='button' onclick='callerReset()'>Start a New Game</button></div>";
 	document.getElementById('main').innerHTML = outputBoard;
 	document.getElementById('caller_button').style.visibility = 'hidden';
 	document.getElementById('new_button').innerHTML = "Play The Game";
